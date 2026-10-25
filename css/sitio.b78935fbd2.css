@@ -119,7 +119,6 @@ mark.pendiente { background: #ffe14d; color: #111; padding: 0 .2em; border-radiu
 .heroe__entradilla { font-size: clamp(1.08rem, 1rem + .4vw, 1.3rem); line-height: 1.5; max-width: 38rem; }
 .heroe__entradilla strong { font-weight: 700; }
 .heroe__botones { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 10px; }
-.heroe__primera { font-weight: 700; margin: 0 0 18px; }
 .heroe__nota { font-size: .95rem; }
 .heroe__nota a, .heroe__priv a, .heroe__entradilla a { color: var(--tinta); }
 .heroe__priv { font-size: .85rem; max-width: 34rem; }
@@ -281,26 +280,32 @@ mark.pendiente { background: #ffe14d; color: #111; padding: 0 .2em; border-radiu
 @media (min-width: 900px) { .banda-final__fila { grid-template-columns: 1fr auto; } }
 
 /* ---------- landing ---------- */
-.elegir { margin: 0 0 6px; }
-.elegir__tit { font-size: .95rem; font-weight: 600; margin-bottom: 8px; }
-.chips { border: 0; margin: 0 0 10px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; min-inline-size: 0; }
-.chips legend { font-weight: 700; font-size: .95rem; margin-bottom: 6px; padding: 0; }
-.chip { position: relative; }
-.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
-.chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--tinta); background: oklch(0.86 0.15 123 / .5); font-weight: 600; font-size: .97rem; transition: background-color .15s, color .15s; }
-.chip input:checked + span { background: var(--tinta); color: #fff; }
-.chip input:focus-visible + span { outline: 3px solid var(--tinta); outline-offset: 2px; }
-.heroe__botones--landing { margin-top: 12px; }
+/* Primera pantalla del móvil: titular, una frase, el botón y el D219. El texto sale sin fundido para que pinte cuanto antes. */
+.es-landing .heroe__texto { animation: none; }
+.heroe__botones--landing { margin-top: 4px; }
 .es-landing .heroe h1 { font-size: clamp(1.85rem, 1.15rem + 3vw, 3.6rem); }
-@media (max-width: 559px) {
-  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding: 2px var(--gutter) 4px; scroll-padding-inline: var(--gutter); }
-  .chips::-webkit-scrollbar { display: none; }
-  .chip { flex: none; }
-  .chips legend { padding-left: var(--gutter); }
-  .es-landing .heroe__entradilla { font-size: 1.05rem; }
-}
+@media (max-width: 559px) { .es-landing .heroe__entradilla { font-size: 1.05rem; } }
 .heroe__botones--landing .boton { width: 100%; }
 @media (min-width: 560px) { .heroe__botones--landing .boton { width: auto; } }
+/* La foto solo en pantallas anchas (en el móvil ni se descarga: ver soloDesde en plantillas.mjs). */
+.heroe--landing .heroe__foto { display: none; }
+@media (min-width: 960px) { .heroe--landing .heroe__foto { display: block; } }
+
+/* Segundo paso (opcional): las opciones rellenan el mensaje de WhatsApp. */
+.paso2__caja { background: var(--lima-suave); border-radius: var(--radio-g); padding: 20px 18px 22px; max-width: 46rem; }
+@media (min-width: 560px) { .paso2__caja { padding: 26px 28px 28px; } }
+.paso2 h2 { font-size: clamp(1.35rem, 1.15rem + .9vw, 1.8rem); margin-bottom: .25em; }
+.paso2__txt { color: var(--tinta-2); margin-bottom: 14px; }
+.elegir { margin: 0 0 8px; }
+.chips { border: 0; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; min-inline-size: 0; }
+.chips legend { font-weight: 700; font-size: .95rem; margin-bottom: 6px; padding: 0; }
+.chip { position: relative; max-width: 100%; }
+.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 16px; border-radius: 999px; border: 2px solid var(--tinta); background: var(--blanco); font-weight: 600; font-size: .97rem; line-height: 1.2; transition: background-color .15s, color .15s; }
+.chip input:checked + span { background: var(--tinta); color: #fff; }
+.chip input:focus-visible + span { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.paso2 .boton { width: 100%; }
+@media (min-width: 560px) { .paso2 .boton { width: auto; } }
 .coste { display: grid; gap: 12px; }
 .coste__texto { max-width: 44rem; }
 @media (min-width: 900px) { .coste { grid-template-columns: 1fr 2fr; gap: 64px; } }
