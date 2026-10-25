@@ -123,6 +123,8 @@ mark.pendiente { background: #ffe14d; color: #111; padding: 0 .2em; border-radiu
 .heroe__nota { font-size: .95rem; }
 .heroe__nota a, .heroe__priv a, .heroe__entradilla a { color: var(--tinta); }
 .heroe__priv { font-size: .85rem; max-width: 34rem; }
+.heroe__sello { font-size: .95rem; font-weight: 600; max-width: 34rem; margin: 6px 0 10px; }
+.heroe__sello a { color: var(--tinta); white-space: nowrap; }
 .heroe__foto .foto { margin: 0; }
 .heroe__foto img { border-radius: var(--radio-g); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 .heroe__foto figcaption { color: var(--tinta); }
